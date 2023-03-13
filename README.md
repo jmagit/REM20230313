@@ -1,5 +1,8 @@
 # Curso de React
 
+- Documentación: https://es.reactjs.org/docs/getting-started.html
+- Tutorial: https://es.reactjs.org/tutorial/tutorial.html
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
