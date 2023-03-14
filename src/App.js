@@ -3,7 +3,11 @@ import './App.css';
 import DemosComponentes from './demos-componentes'
 
 function App() {
-  return <DemosComponentes />
+  return (
+    <main className='container-fluid'>
+      <DemosComponentes />
+    </main>
+  )
 }
 
 export default App;
