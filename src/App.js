@@ -2,29 +2,35 @@ import './App.css';
 // import {DemosJSX} from './demos-jsx'
 // import DemosComponentes from './demos-componentes'
 import Calculadora, { CalculadoraView as Calc, CalculadoraDemo } from './ejercicios/calculadora';
+import React, { Component } from 'react'
 
-function App() {
-  return (
-    <>
-      <Head />
-      <main className='container-fluid'>
-        {/* <DemosComponentes /> */}
-        <CalculadoraDemo />
-        {/* <Calculadora />
-      <Calc init={666} coma /> */}
-      </main>
-      <Foot />
-    </>
-  )
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.opcionesDelMenu = [
+      { texto: 'Inicio', url: '/' },
+      { texto: 'Demos', url: '/demos' },
+      { texto: 'Calculadora', url: '/calc' },
+      { texto: 'Perfil', url: '/perfil' },
+    ]
+  }
+  render() {
+    return (
+      <>
+        <Head opciones={this.opcionesDelMenu} />
+        <main className='container-fluid'>
+          {/* <DemosComponentes /> */}
+          <CalculadoraDemo />
+          {/* <Calculadora />
+        <Calc init={666} coma /> */}
+        </main>
+        <Foot />
+      </>
+    )
+    }
 }
 
-function Head() {
-  const opcionesDelMenu = [
-    {texto: 'Inicio', url: '/'},
-    {texto: 'Demos', url: '/demos'},
-    {texto: 'Calculadora', url: '/calc'},
-    {texto: 'Perfil', url: '/perfil'},
-  ]
+function Head(props) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -43,7 +49,7 @@ function Head() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <Menu opciones={opcionesDelMenu} />
+          <Menu opciones={props.opciones} seleccionado={3} />
           <Buscar />
         </div>
       </div>
@@ -53,11 +59,11 @@ function Menu(props) {
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       {props.opciones.map((item, index) => (
-      <li key={index} className="nav-item">
-        <a className="nav-link" href={item.url}>
-          {item.texto}
-        </a>
-      </li>
+        <li key={index} className="nav-item">
+          <a className={"nav-link" + (props.seleccionado===index ? " active" : "")} href={item.url}>
+            {item.texto}
+          </a>
+        </li>
       ))}
     </ul>
   );
