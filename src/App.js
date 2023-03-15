@@ -13,11 +13,12 @@ class App extends Component {
       { texto: 'Calculadora', url: '/calc' },
       { texto: 'Perfil', url: '/perfil' },
     ]
+    this.seleccionado = 1;
   }
   render() {
     return (
       <>
-        <Head opciones={this.opcionesDelMenu} />
+        <Head opciones={this.opcionesDelMenu} seleccionado={this.seleccionado} />
         <main className='container-fluid'>
           {/* <DemosComponentes /> */}
           <CalculadoraDemo />
@@ -49,7 +50,7 @@ function Head(props) {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <Menu opciones={props.opciones} seleccionado={3} />
+          <Menu opciones={props.opciones} seleccionado={props.seleccionado} />
           <Buscar />
         </div>
       </div>
