@@ -43,7 +43,7 @@ function Head() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <Menu />
+          <Menu opciones={opcionesDelMenu} />
           <Buscar />
         </div>
       </div>
