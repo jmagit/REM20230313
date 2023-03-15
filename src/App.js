@@ -13,17 +13,18 @@ class App extends Component {
       { texto: 'Calculadora', url: '/calc' },
       { texto: 'Perfil', url: '/perfil' },
     ]
-    this.seleccionado = 1;
+    this.state = { seleccionado: 0 }
   }
   render() {
     return (
       <>
-        <Head opciones={this.opcionesDelMenu} seleccionado={this.seleccionado} />
+        <Head opciones={this.opcionesDelMenu} seleccionado={this.state.seleccionado} />
         <main className='container-fluid'>
           {/* <DemosComponentes /> */}
           <CalculadoraDemo />
           {/* <Calculadora />
         <Calc init={666} coma /> */}
+        <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} />
         </main>
         <Foot />
       </>
