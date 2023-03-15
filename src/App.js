@@ -19,6 +19,12 @@ function App() {
 }
 
 function Head() {
+  const opcionesDelMenu = [
+    {texto: 'Inicio', url: '/'},
+    {texto: 'Demos', url: '/demos'},
+    {texto: 'Calculadora', url: '/calc'},
+    {texto: 'Perfil', url: '/perfil'},
+  ]
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -43,7 +49,7 @@ function Head() {
       </div>
     </nav>);
 }
-function Menu() {
+function Menu(props) {
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item">
