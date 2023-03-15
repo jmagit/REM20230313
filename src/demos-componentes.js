@@ -19,10 +19,10 @@ export default class Demos extends Component {
                 <Contador init={666} delta={1} onCambia={v => this.setState({valor: v})} />
                 <p>El valor es: {this.state.valor}</p>
                 <Saludo nombre={"Don Jose " + this.state.valor} />
-                {/* <Card titulo="Mi titulo" boton={<input type='button' value="cierra" />}>
+                <Card titulo="Mi titulo" boton={<input type='button' value="cierra" />}>
                 Esto es el contenido
                 <Despide nombre="Don Jose" />
-            </Card> */}
+            </Card>
             </>
         );
     }
@@ -38,8 +38,8 @@ const Despide = ({ nombre }) => {
 function Card(props) {
     return (
         <div className='card'>
-            <h1 style={{ backgroundColor: 'aquamarine' }}>{props.titulo}</h1>
-            <section>
+            <h1 className='card-title' style={{ backgroundColor: 'aliceblue' }}>{props.titulo}</h1>
+            <section className='card-body'>
                 {props.children}
             </section>
             {props.boton}
