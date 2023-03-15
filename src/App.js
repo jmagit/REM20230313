@@ -15,6 +15,9 @@ class App extends Component {
     ]
     this.state = { seleccionado: 0 }
   }
+  seleccionaEnElMenu(opcion) {
+    this.setState({ seleccionado: opcion })
+  }
   render() {
     return (
       <>
@@ -24,12 +27,12 @@ class App extends Component {
           <CalculadoraDemo />
           {/* <Calculadora />
         <Calc init={666} coma /> */}
-        <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} />
+          <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} />
         </main>
         <Foot />
       </>
     )
-    }
+  }
 }
 
 function Head(props) {
@@ -51,18 +54,23 @@ function Head(props) {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <Menu opciones={props.opciones} seleccionado={props.seleccionado} />
+          <Menu opciones={props.opciones} seleccionado={props.seleccionado} onMenuChange={props.onMenuChange} />
           <Buscar />
         </div>
       </div>
     </nav>);
 }
 function Menu(props) {
+  const haceClick = (indice, ev) => {
+    ev.preventDefault()
+    if (props.onMenuChange)
+      props.onMenuChange(indice)
+  }
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       {props.opciones.map((item, index) => (
         <li key={index} className="nav-item">
-          <a className={"nav-link" + (props.seleccionado===index ? " active" : "")} href={item.url}>
+          <a className={"nav-link" + (props.seleccionado === index ? " active" : "")} href={item.url} onClick={ev => haceClick(index, ev)}>
             {item.texto}
           </a>
         </li>
