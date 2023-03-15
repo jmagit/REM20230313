@@ -8,9 +8,9 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.opcionesDelMenu = [
+      { texto: 'Calculadora', url: '/calc', componente: <CalculadoraDemo />,  },
       { texto: 'Inicio', url: '/', componente: <DemosJSX /> },
       { texto: 'Demos', url: '/demos', componente: <DemosComponentes /> },
-      { texto: 'Calculadora', url: '/calc', componente: <CalculadoraDemo />,  },
       { texto: 'Perfil', url: '/perfil', componente: <Calc init={666} coma /> },
       { texto: 'Boton', url: '/perfil', componente: <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} /> },
     ]

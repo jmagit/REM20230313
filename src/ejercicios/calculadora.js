@@ -3,14 +3,36 @@ import PropTypes from "prop-types";
 import "./calculadora.css";
 import { Calculadora as Calc } from '../biblioteca/calculadora';
 
+// function Persona() {
+//     this.nombre = ''
+//     this.apellido = ''
+//     //this.getTodo = () => this.nombre + ' ' + this.apellido;
+// }
+// Persona.prototype.getTodo = () => this.nombre + ' ' + this.apellido;
+
 export class CalculadoraDemo extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            pantalla: "0"
+        }
+        this.ponDigito = this.ponDigito.bind(this)
+    }
+    ponDigito(ev) {
+        const valor = ev.target.value
+        this.setState(prev => {
+            if(prev.pantalla === "0")
+                return { pantalla: valor.toString() }
+            return { pantalla: prev.pantalla + valor }
+        })
+    }
     render() {
       return (
         <table>
           <thead>
               <tr>
                   <th className='Pantalla' colSpan={4}>
-                      0
+                      {this.state.pantalla}
                   </th>
               </tr>
           </thead>
@@ -21,26 +43,26 @@ export class CalculadoraDemo extends Component {
                   <td><input className='btnOperador' type="button" value="/" /> </td>
               </tr>
               <tr>
-                  <td><input className='btnDigito' type="button" value="7" /> </td>
-                  <td><input className='btnDigito' type="button" value="8" /> </td>
-                  <td><input className='btnDigito' type="button" value="9" /> </td>
+                  <td><input className='btnDigito' type="button" value="7" onClick={this.ponDigito} /> </td>
+                  <td><input className='btnDigito' type="button" value="8" onClick={this.ponDigito} /> </td>
+                  <td><input className='btnDigito' type="button" value="9" onClick={this.ponDigito} /> </td>
                   <td><input className='btnOperador' type="button" value="*" /> </td>
               </tr>
               <tr>
-                  <td><input className='btnDigito' type="button" value="4" /> </td>
-                  <td><input className='btnDigito' type="button" value="5" /> </td>
-                  <td><input className='btnDigito' type="button" value="6" /> </td>
+                  <td><input className='btnDigito' type="button" value="4" onClick={this.ponDigito} /> </td>
+                  <td><input className='btnDigito' type="button" value="5" onClick={this.ponDigito} /> </td>
+                  <td><input className='btnDigito' type="button" value="6" onClick={this.ponDigito} /> </td>
                   <td><input className='btnOperador' type="button" value="-" /> </td>
               </tr>
               <tr>
-                  <td><input className='btnDigito' type="button" value="1" /> </td>
-                  <td><input className='btnDigito' type="button" value="2" /> </td>
-                  <td><input className='btnDigito' type="button" value="3" /> </td>
+                  <td><input className='btnDigito' type="button" value="1" onClick={this.ponDigito} /> </td>
+                  <td><input className='btnDigito' type="button" value="2" onClick={this.ponDigito} /> </td>
+                  <td><input className='btnDigito' type="button" value="3" onClick={this.ponDigito} /> </td>
                   <td><input className='btnOperador' type="button" value="+" /> </td>
               </tr>
               <tr>
                   <td><input className='btnDigito' type="button" value="+-" /> </td>
-                  <td><input className='btnDigito' type="button" value="0" /> </td>
+                  <td><input className='btnDigito' type="button" value="0" onClick={this.ponDigito} /> </td>
                   <td><input className='btnDigito' type="button" value="," /> </td>
                   <td><input className='btnOperador' type="button" value="=" /> </td>
               </tr>
