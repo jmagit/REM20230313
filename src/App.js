@@ -1,6 +1,6 @@
 import './App.css';
-// import {DemosJSX} from './demos-jsx'
-// import DemosComponentes from './demos-componentes'
+import {DemosJSX} from './demos-jsx'
+import DemosComponentes from './demos-componentes'
 import Calculadora, { CalculadoraView as Calc, CalculadoraDemo } from './ejercicios/calculadora';
 import React, { Component } from 'react'
 
@@ -8,10 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.opcionesDelMenu = [
-      { texto: 'Inicio', url: '/' },
-      { texto: 'Demos', url: '/demos' },
-      { texto: 'Calculadora', url: '/calc' },
-      { texto: 'Perfil', url: '/perfil' },
+      { texto: 'Inicio', url: '/', componente: <DemosJSX /> },
+      { texto: 'Demos', url: '/demos', componente: <DemosComponentes /> },
+      { texto: 'Calculadora', url: '/calc', componente: <CalculadoraDemo />,  },
+      { texto: 'Perfil', url: '/perfil', componente: <Calc init={666} coma /> },
+      { texto: 'Boton', url: '/perfil', componente: <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} /> },
     ]
     this.state = { seleccionado: 0 }
   }
@@ -23,11 +24,7 @@ class App extends Component {
       <>
         <Head opciones={this.opcionesDelMenu} seleccionado={this.state.seleccionado} onMenuChange={op => this.seleccionaEnElMenu(op)} />
         <main className='container-fluid'>
-          {/* <DemosComponentes /> */}
-          <CalculadoraDemo />
-          {/* <Calculadora />
-        <Calc init={666} coma /> */}
-          <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} />
+          {this.opcionesDelMenu[this.state.seleccionado].componente}
         </main>
         <Foot />
       </>
