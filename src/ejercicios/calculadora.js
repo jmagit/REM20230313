@@ -16,7 +16,13 @@ export class CalculadoraDemo extends Component {
         this.state = {
             pantalla: "0"
         }
+        this.init = this.init.bind(this)
         this.ponDigito = this.ponDigito.bind(this)
+    }
+    init() {
+        this.setState({
+            pantalla: "0"
+        })
     }
     ponDigito(ev) {
         const valor = ev.target.value
@@ -38,7 +44,7 @@ export class CalculadoraDemo extends Component {
           </thead>
           <tbody>
               <tr>
-                  <td><input className='btnOperador' type="button" value="C" /> </td>
+                  <td><input className='btnOperador' type="button" value="C" onClick={this.init} /> </td>
                   <td colSpan={2}><input className='btnOperador' type="button" value="Borra" /> </td>
                   <td><input className='btnOperador' type="button" value="/" /> </td>
               </tr>
