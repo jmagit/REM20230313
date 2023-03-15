@@ -37,22 +37,12 @@ function Head() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          <Menu />
+          <Buscar />
         </div>
       </div>
     </nav>);
 }
-
 function Menu() {
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -105,9 +95,17 @@ function Menu() {
 }
 function Buscar() {
   return (
-    <header>
-      Buscar
-    </header>
+    <form className="d-flex" role="search">
+      <input
+        className="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button className="btn btn-outline-success" type="submit">
+        Search
+      </button>
+    </form>
   );
 }
 function Foot() {
