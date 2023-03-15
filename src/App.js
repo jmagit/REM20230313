@@ -34,7 +34,7 @@ class App extends Component {
 
 function Head(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor: '#e3f2fd'}}>
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           Navbar

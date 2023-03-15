@@ -18,6 +18,8 @@ export class CalculadoraDemo extends Component {
         }
         this.init = this.init.bind(this)
         this.ponDigito = this.ponDigito.bind(this)
+        this.ponComa = this.ponComa.bind(this)
+        this.cambiaSigno = this.cambiaSigno.bind(this)
     }
     init() {
         this.setState({
@@ -32,13 +34,25 @@ export class CalculadoraDemo extends Component {
             return { pantalla: prev.pantalla + valor }
         })
     }
+    ponComa(ev) {
+        this.setState(prev => {
+            if(prev.pantalla.indexOf('.') < 0)
+                return { pantalla: prev.pantalla + '.' }
+            return { pantalla: prev.pantalla }
+        })
+    }
+    cambiaSigno() {
+        this.setState(prev => {
+            return { pantalla: (-prev.pantalla).toString() }
+        })
+    }
     render() {
       return (
         <table>
           <thead>
               <tr>
-                  <th className='Pantalla' colSpan={4}>
-                      {this.state.pantalla}
+                  <th className='Pantalla' style={{textAlign: 'right'}} colSpan={4}>
+                      {this.state.pantalla.replace('.', ',')}
                   </th>
               </tr>
           </thead>
@@ -67,9 +81,9 @@ export class CalculadoraDemo extends Component {
                   <td><input className='btnOperador' type="button" value="+" /> </td>
               </tr>
               <tr>
-                  <td><input className='btnDigito' type="button" value="+-" /> </td>
+                  <td><input className='btnDigito' type="button" value="+-" onClick={this.cambiaSigno} /> </td>
                   <td><input className='btnDigito' type="button" value="0" onClick={this.ponDigito} /> </td>
-                  <td><input className='btnDigito' type="button" value="," /> </td>
+                  <td><input className='btnDigito' type="button" value="," onClick={this.ponComa} /> </td>
                   <td><input className='btnOperador' type="button" value="=" /> </td>
               </tr>
           </tbody>
