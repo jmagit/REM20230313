@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Head opciones={this.opcionesDelMenu} seleccionado={this.state.seleccionado} />
+        <Head opciones={this.opcionesDelMenu} seleccionado={this.state.seleccionado} onMenuChange={op => this.seleccionaEnElMenu(op)} />
         <main className='container-fluid'>
           {/* <DemosComponentes /> */}
           <CalculadoraDemo />
