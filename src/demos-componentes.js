@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Reloj from './ejercicios/reloj'
+import { Paginator } from 'primereact/paginator';
+
 export default class Demos extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            valor: 0
+            valor: 0,
+            pagina: 0
         }
     }
     render() {
+        let first = 1
+        let rows = 20
         return (
             <>
                 {/* <Saludo nombre="Don Pepito" />
@@ -16,14 +21,17 @@ export default class Demos extends Component {
             <Despide nombre="Don Jose" />
             <Despide nombre="Don Pepito" />
             <Despide /> */}
-            <Reloj />
-                <Contador init={1} delta={1} onCambia={v => this.setState({valor: v})} />
+                <Reloj />
+                <Contador init={1} delta={1} onCambia={v => this.setState({ valor: v })} />
                 <p>El valor es: {this.state.valor}</p>
                 <Saludo nombre={"Don Jose " + this.state.valor} />
                 <Card titulo="Mi titulo" boton={<input type='button' value="cierra" />}>
-                Esto es el contenido
-                <Despide nombre="Don Jose" />
-            </Card>
+                    Esto es el contenido
+                    <Despide nombre="Don Jose" />
+                </Card>
+                <h2>{this.state.pagina}</h2>
+                <Paginator first={first} rows={rows} totalRecords={120} rowsPerPageOptions={[10, 20, 30]} 
+                    onPageChange={pagina => this.setState({pagina})} />
             </>
         );
     }
