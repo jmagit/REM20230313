@@ -1,5 +1,6 @@
 import React, { Component, createRef } from 'react'
-
+import './comunes.css'
+import '../imagenes/loading.gif'
 export class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -21,4 +22,10 @@ export class ErrorBoundary extends React.Component {
         }
         return this.props.children;
     }
+}
+
+export function Esperando() {
+    return (
+        <h2>Esperando ...</h2>
+    )
 }
