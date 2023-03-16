@@ -31,7 +31,7 @@ export default class Demos extends Component {
                 </Card>
                 <h2>{this.state.pagina}</h2>
                 <Paginator first={first} rows={rows} totalRecords={120} rowsPerPageOptions={[10, 20, 30]} 
-                    onPageChange={pagina => this.setState({pagina})} />
+                    onPageChange={e => this.setState({pagina: e.page})} />
             </>
         );
     }
