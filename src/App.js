@@ -5,11 +5,13 @@ import Calculadora, { CalculadoraView as Calc, CalculadoraDemo } from './ejercic
 import React, { Component, createRef } from 'react'
 import Reloj from './ejercicios/reloj';
 import { ErrorBoundary } from './biblioteca/comunes';
+import Muro from './ejercicios/muro';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.opcionesDelMenu = [
+      { texto: 'Muro', url: '/muro', componente: <Muro /> },
       { texto: 'Inicio', url: '/', componente: <DemosJSX /> },
       { texto: 'Demos', url: '/demos', componente: <DemosComponentes /> },
       { texto: 'Calculadora', url: '/calc', componente: <CalculadoraDemo coma />,  },
