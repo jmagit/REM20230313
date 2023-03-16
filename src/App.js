@@ -11,7 +11,7 @@ class App extends Component {
     this.opcionesDelMenu = [
       { texto: 'Inicio', url: '/', componente: <DemosJSX /> },
       { texto: 'Demos', url: '/demos', componente: <DemosComponentes /> },
-      { texto: 'Calculadora', url: '/calc', componente: <Calculadora coma />,  },
+      { texto: 'Calculadora', url: '/calc', componente: <CalculadoraDemo coma />,  },
       { texto: 'Perfil', url: '/perfil', componente: <Calc init={666} coma /> },
       { texto: 'Boton', url: '/perfil', componente: <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} /> },
     ]
@@ -94,7 +94,7 @@ function Buscar() {
 function Foot() {
   return (
     <footer style={{backgroundColor: '#e3f2fd'}}>
-      <Reloj />
+      {/* <Reloj /> */}
     </footer>
   );
 }

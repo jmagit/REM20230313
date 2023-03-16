@@ -7,10 +7,17 @@ export default class Reloj extends Component {
             hora: new Date()
         }
     }
-    
+
     render() {
         return (
             <div>{this.state.hora.toLocaleTimeString()}</div>
         )
+    }
+
+    componentDidMount() {
+        setInterval(() => {
+            this.setState({hora: new Date()})
+            console.log((new Date()).toLocaleTimeString())
+        }, 1000)
     }
 }

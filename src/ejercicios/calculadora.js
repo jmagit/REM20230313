@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import "./calculadora.css";
 import { Calculadora as Calc } from '../biblioteca/calculadora';
+import Reloj from './reloj';
 
 // function Persona() {
 //     this.nombre = ''
@@ -50,6 +51,12 @@ export class CalculadoraDemo extends Component {
       return (
         <table>
           <thead>
+          <tr>
+                  <th className='Pantalla' style={{textAlign: 'right'}} colSpan={4}>
+                      <Reloj />
+                  </th>
+              </tr>
+            
               <tr>
                   <th className='Pantalla' style={{textAlign: 'right'}} colSpan={4}>
                       {this.state.pantalla.replace('.', ',')}
