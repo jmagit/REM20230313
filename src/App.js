@@ -3,13 +3,14 @@ import {DemosJSX} from './demos-jsx'
 import DemosComponentes from './demos-componentes'
 import Calculadora, { CalculadoraView as Calc, CalculadoraDemo } from './ejercicios/calculadora';
 import React, { Component } from 'react'
+import Reloj from './ejercicios/reloj';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.opcionesDelMenu = [
-      { texto: 'Demos', url: '/demos', componente: <DemosComponentes /> },
       { texto: 'Inicio', url: '/', componente: <DemosJSX /> },
+      { texto: 'Demos', url: '/demos', componente: <DemosComponentes /> },
       { texto: 'Calculadora', url: '/calc', componente: <Calculadora coma />,  },
       { texto: 'Perfil', url: '/perfil', componente: <Calc init={666} coma /> },
       { texto: 'Boton', url: '/perfil', componente: <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} /> },
@@ -92,8 +93,8 @@ function Buscar() {
 }
 function Foot() {
   return (
-    <footer>
-      Esto es el pie
+    <footer style={{backgroundColor: '#e3f2fd'}}>
+      <Reloj />
     </footer>
   );
 }
