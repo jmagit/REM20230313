@@ -15,9 +15,13 @@ export default class Reloj extends Component {
     }
 
     componentDidMount() {
-        setInterval(() => {
+        this.intervalo = setInterval(() => {
             this.setState({hora: new Date()})
             console.log((new Date()).toLocaleTimeString())
         }, 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalo)
     }
 }
