@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react'
 import './comunes.css'
-import '../imagenes/loading.gif'
+import loadingImage from '../imagenes/loading.gif'
 export class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -25,7 +25,9 @@ export class ErrorBoundary extends React.Component {
 }
 
 export function Esperando() {
-    return (
-        <h2>Esperando ...</h2>
-    )
+    return <div>
+      <div className="ajax-wait"></div>
+      <div className="loader"></div>
+      {/* <img className="ajax-wait" src={loadingImage} alt="Cargando ..." /> */}
+    </div>;
 }
