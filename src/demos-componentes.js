@@ -17,7 +17,7 @@ export default class Demos extends Component {
             <Despide nombre="Don Pepito" />
             <Despide /> */}
             <Reloj />
-                <Contador init={666} delta={1} onCambia={v => this.setState({valor: v})} />
+                <Contador init={1} delta={1} onCambia={v => this.setState({valor: v})} />
                 <p>El valor es: {this.state.valor}</p>
                 <Saludo nombre={"Don Jose " + this.state.valor} />
                 <Card titulo="Mi titulo" boton={<input type='button' value="cierra" />}>
@@ -65,6 +65,8 @@ export class Contador extends Component {
     cambiaContador(delta) {
         this.setState((prev) => {
             const cont = prev.contador + delta
+            // if(cont < 0)
+            //     throw Error('Contador negativo')
             if (this.props.onCambia)
                 this.props.onCambia(cont);
             return { contador: cont }

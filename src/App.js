@@ -4,6 +4,7 @@ import DemosComponentes from './demos-componentes'
 import Calculadora, { CalculadoraView as Calc, CalculadoraDemo } from './ejercicios/calculadora';
 import React, { Component, createRef } from 'react'
 import Reloj from './ejercicios/reloj';
+import { ErrorBoundary } from './biblioteca/comunes';
 
 class App extends Component {
   constructor(props) {
@@ -25,9 +26,13 @@ class App extends Component {
       <>
         <Head opciones={this.opcionesDelMenu} seleccionado={this.state.seleccionado} onMenuChange={op => this.seleccionaEnElMenu(op)} />
         <main className='container-fluid'>
+        <ErrorBoundary>
           {this.opcionesDelMenu[this.state.seleccionado].componente}
+        </ErrorBoundary>
         </main>
-        <Foot />
+        <ErrorBoundary>
+          <Foot />
+        </ErrorBoundary>
       </>
     )
   }
@@ -101,9 +106,17 @@ class Buscar extends Component {
   }
 }
 function Foot() {
+  // let err = true
+  //   if(err)
+  //     throw new Error('Ha tocado el boton')
   return (
     <footer style={{backgroundColor: '#e3f2fd'}}>
       <Reloj />
+      <input type='button' value='No tocar' className='btn btn-danger' onClick={() => { 
+        let err = new Error('Ha tocado el boton')
+        console.error(err)
+        throw err
+      }} />
     </footer>
   );
 }
