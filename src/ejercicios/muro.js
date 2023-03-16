@@ -13,23 +13,22 @@ export default class Muro extends Component {
 
     load(pagina = 0) {
         this.setState({ loading: true, errorMsg: null  })
-        fetch(`https://picsum.photos/v2/list?page=${pagina}&limit=20`)
+        fetch(`https://picsum.photos/v2/lista?page=${pagina}&limit=20`)
             .then(
                 resp => {
                     if(resp.ok) {
                         resp.json().then(
                             data => this.setState({ listado: data, loading: false }),
-                            err2 => this.setState({ errorMsg: err2.status, loading: false })
+                            err => this.setState({ errorMsg: `ERROR Respuesta: ${err.status}:2 ${err.statusText}`, loading: false })
                         )
                     } else {
-                        this.setState({ errorMsg: resp.status, loading: false })
+                        this.setState({ errorMsg: `ERROR Servidor: ${resp.status}: ${resp.statusText}`, loading: false })
                     }
                 },
                 err => {
-                    this.setState({ errorMsg: err.status, loading: false })
+                    this.setState({ errorMsg: `ERROR Petición: ${err.status}: ${err.statusText}`, loading: false })
                 }
             )
-
     }
 
     render() {
