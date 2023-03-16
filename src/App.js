@@ -94,7 +94,7 @@ function Buscar() {
 function Foot() {
   return (
     <footer style={{backgroundColor: '#e3f2fd'}}>
-      {/* <Reloj /> */}
+      <Reloj />
     </footer>
   );
 }
