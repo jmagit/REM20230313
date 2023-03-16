@@ -2,7 +2,7 @@ import './App.css';
 import {DemosJSX} from './demos-jsx'
 import DemosComponentes from './demos-componentes'
 import Calculadora, { CalculadoraView as Calc, CalculadoraDemo } from './ejercicios/calculadora';
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import Reloj from './ejercicios/reloj';
 
 class App extends Component {
@@ -76,20 +76,29 @@ function Menu(props) {
     </ul>
   );
 }
-function Buscar() {
-  return (
-    <form className="d-flex" role="search">
-      <input
-        className="form-control me-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button className="btn btn-outline-success" type="submit">
-        Search
-      </button>
-    </form>
-  );
+class Buscar extends Component {
+  constructor(props) {
+    super(props)
+    this.txtBuscar = createRef();
+  }
+  render() {
+    return (
+      <form className="d-flex" role="search">
+        <input ref={this.txtBuscar}
+          className="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button className="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </form>
+    );
+  }
+  componentDidMount() {
+    this.txtBuscar.current.focus();
+  }
 }
 function Foot() {
   return (
