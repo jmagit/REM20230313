@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-
+import Reloj from './ejercicios/reloj'
 export default class Demos extends Component {
     constructor(props) {
         super(props)
@@ -16,6 +16,7 @@ export default class Demos extends Component {
             <Despide nombre="Don Jose" />
             <Despide nombre="Don Pepito" />
             <Despide /> */}
+            <Reloj />
                 <Contador init={666} delta={1} onCambia={v => this.setState({valor: v})} />
                 <p>El valor es: {this.state.valor}</p>
                 <Saludo nombre={"Don Jose " + this.state.valor} />
