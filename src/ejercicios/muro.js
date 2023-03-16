@@ -13,7 +13,7 @@ export default class Muro extends Component {
 
     load(pagina = 0) {
         this.setState({ loading: true, errorMsg: null  })
-        fetch(`https://picsum.photos/v2/lista?page=${pagina}&limit=20`)
+        fetch(`https://picsum.photos/v2/list?page=${pagina}&limit=20`)
             .then(
                 resp => {
                     if(resp.ok) {
