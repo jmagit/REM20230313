@@ -6,6 +6,7 @@ export default class Reloj extends Component {
         this.state = {
             hora: new Date()
         }
+        this.intervalo = null;
     }
 
     render() {
@@ -20,6 +21,11 @@ export default class Reloj extends Component {
             // console.log((new Date()).toLocaleTimeString())
         }, 1000)
     }
+
+    // componentDidUpdate() {
+    //     this.setState({hora: new Date()})
+    //     console.log((new Date()).toLocaleTimeString())
+    // }
 
     componentWillUnmount() {
         clearInterval(this.intervalo)
