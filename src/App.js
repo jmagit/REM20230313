@@ -14,8 +14,8 @@ class App extends Component {
       { texto: 'Muro', url: '/muro', componente: <Muro /> },
       { texto: 'Inicio', url: '/', componente: <DemosJSX /> },
       { texto: 'Demos', url: '/demos', componente: <DemosComponentes /> },
-      { texto: 'Calculadora', url: '/calc', componente: <CalculadoraDemo coma />,  },
-      { texto: 'Perfil', url: '/perfil', componente: <Calc init={666} coma /> },
+      { texto: 'Calculadora', url: '/calc', componente: <Calc coma />,  },
+      { texto: 'Perfil', url: '/perfil', componente: <CalculadoraDemo init={666} coma /> },
       { texto: 'Boton', url: '/perfil', componente: <input type="button" value="demos" onClick={() => this.setState({ seleccionado: 1 })} /> },
     ]
     this.state = { seleccionado: 0 }
