@@ -1,4 +1,4 @@
-# Curso de React (hotfix2)
+# Curso de React
 
 
 - Documentación: https://es.reactjs.org/docs/getting-started.html
